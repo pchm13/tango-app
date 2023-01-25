@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->text('answer');
+            $table->foreignId('question_id')->constrained();
+            $table->date('created_at');
+            $table->date('updated_at');
         });
     }
 
